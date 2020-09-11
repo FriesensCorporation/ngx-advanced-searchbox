@@ -17,7 +17,7 @@ import { AsInputWithOperatorsComponent } from "../asInputWithOperators.component
             (change)="_onChange(this.filter.viewModel.value);filter.onChange()"
             (focus)="filter.focusInput$.next()"
             (keydown)="advancedSearchBox.keydown($event,filter.viewModel)" 
-            autosize 
+            AutoSizeInput 
             [placeholder]="filter.viewModel.label"
             [mask]="filter.viewModel.mask.mask"
             [specialCharacters]="filter.viewModel.mask.specialCharacters"

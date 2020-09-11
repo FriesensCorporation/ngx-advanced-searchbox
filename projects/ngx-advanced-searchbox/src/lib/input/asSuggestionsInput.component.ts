@@ -18,8 +18,7 @@ import { NgbTypeahead } from "@ng-bootstrap/ng-bootstrap";
             (focus)="filter.focusInput$.next()"
             (keydown)="advancedSearchBox.keydown($event, filter.viewModel)"
             (selectItem)="filter.onSelectSuggestions($event)"
-            autosize 
-            [autosizeProp]="filter.viewModel.bindLabel"
+            AutoSizeInput 
             [placeholder]="filter.viewModel.label"
             [ngbTypeahead]="suggestionsFunc"
             [inputFormatter]="suggestionsFormatter(filter.viewModel)"

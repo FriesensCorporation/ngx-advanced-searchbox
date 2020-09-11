@@ -16,7 +16,7 @@ import { NG_VALUE_ACCESSOR } from "@angular/forms";
             (change)="filter.onChange()"
             (focus)="filter.focusInput$.next()"
             (keydown)="advancedSearchBox.keydown($event, filter.viewModel)" 
-            autosize 
+            AutoSizeInput 
             [placeholder]="filter.viewModel.label"
             #inputRef
             />`,

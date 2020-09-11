@@ -70,7 +70,7 @@ export class AsDomainsInputComponent extends AsInputAbstract implements AfterVie
         super(advancedSearchBox, _http, _config, _element);
     }
 
-    ngOnInit(){
+    ngAfterViewInit(){
         super.ngAfterViewInit();
         
         this.ngControl.valueChanges.subscribe((res)=>{

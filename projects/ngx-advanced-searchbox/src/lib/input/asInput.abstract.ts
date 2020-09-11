@@ -111,11 +111,13 @@ export abstract class AsInputAbstract implements AfterViewInit, AsInputInterface
     }
 
     ngAfterViewInit(){
+        if (this.inputElementRef) {
         this.searchboxInputClick$ = fromEvent(this.inputElementRef.nativeElement, 'click').pipe(map((response: MouseEvent) => {
             response.preventDefault();
             response.stopPropagation();
             return response;
-        }));        
+        }));
+    }
         if(this.typeaheadController){
             this.typeaheadController._userInput = '';
         }
