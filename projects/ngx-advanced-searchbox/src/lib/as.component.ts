@@ -56,7 +56,7 @@ export enum OperatorsEnum {
     `,
     providers: [NgbTypeaheadConfig]
 })
-export class AsComponent implements OnInit, OnChanges {
+export class AsComponent implements AfterViewInit, OnChanges {
 
     @Output('editNext') editNext:EventEmitter<any>;
     @Output('editPrev') editPrev:EventEmitter<any>;
@@ -187,7 +187,7 @@ export class AsComponent implements OnInit, OnChanges {
         return obj ? obj.label : undefined;
     }
 
-    ngOnInit() {
+    ngAfterViewInit() {
         
        this.searchboxInputClick$ = fromEvent(this.searchboxInput.nativeElement, 'click').pipe(map((response: MouseEvent) => {
             response.preventDefault();

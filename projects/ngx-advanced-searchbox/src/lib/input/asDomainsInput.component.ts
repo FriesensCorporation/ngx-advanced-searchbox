@@ -74,7 +74,7 @@ export class AsDomainsInputComponent extends AsInputAbstract implements AfterVie
     }
 
     ngOnInit(){
-        super.ngOnInit();
+        super.ngAfterViewInit();
         
         this.ngControl.valueChanges.subscribe((res)=>{
             if(res === '' || res === undefined || res === null){
@@ -89,7 +89,7 @@ export class AsDomainsInputComponent extends AsInputAbstract implements AfterVie
     }
 
     ngDoCheck(){
-        if(this.typeahead.filterValue){
+        if(this.typeahead && this.typeahead.filterValue){
             this._filterValue = this.typeahead.filterValue;
         }
     }

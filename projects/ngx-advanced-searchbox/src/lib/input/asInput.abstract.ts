@@ -25,7 +25,7 @@ enum notDuplicate{
     Suggestions
 }
 
-export abstract class AsInputAbstract implements OnInit, AsInputInterface, ControlValueAccessor{
+export abstract class AsInputAbstract implements AfterViewInit, AsInputInterface, ControlValueAccessor{
 
     public focusInput$: Subject<any>;
     public domainsResults$:ReplaySubject<any>;
@@ -114,8 +114,7 @@ export abstract class AsInputAbstract implements OnInit, AsInputInterface, Contr
     setDisabledState(isDisabled: boolean): void {
     }
 
-    ngOnInit(){
-    
+    ngAfterViewInit(){
         this.searchboxInputClick$ = fromEvent(this.inputElementRef.nativeElement, 'click').pipe(map((response: MouseEvent) => {
             response.preventDefault();
             response.stopPropagation();
