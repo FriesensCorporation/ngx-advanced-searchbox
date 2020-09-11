@@ -1,8 +1,11 @@
 import { ViewModelInterface } from './asViewModel.interface';
-import { Subject ,  Observable ,  ReplaySubject ,  BehaviorSubject } from 'rxjs';
+import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { ReplaySubject } from "rxjs";
 import { take, catchError, map, switchMap } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 import { FunctionCall } from '@angular/compiler';
 
 @Injectable()

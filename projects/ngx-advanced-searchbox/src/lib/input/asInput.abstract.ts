@@ -1,16 +1,20 @@
 import { AsUtils } from './../asUtils';
 import { ViewModelInterface } from './../asViewModel.interface';
 import { AsInputComponent } from './../asInput.component';
-import { Subject, OperatorFunction ,  Observable, pipe ,  fromEvent ,  ReplaySubject ,  BehaviorSubject } from 'rxjs';
+import { Subject, OperatorFunction } from 'rxjs';
 import { ElementRef, OnInit, ViewChild, Input, Output } from '@angular/core';
 import { AsConfigService } from './../asConfig.service';
 import { HttpClient } from '@angular/common/http';
 import { AsComponent } from "../as.component";
+import { Observable, pipe } from "rxjs";
 import { AsBoxFilterAbstract } from '../asFilter.abstract';
 import { AsInputInterface } from './asInput.interface';
+import { fromEvent } from 'rxjs';
 import { NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 import { FilterInterface } from '../asFilter.interface';
 import { AfterViewInit } from '@angular/core';
+import { ReplaySubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { NgModel, ControlValueAccessor, FormGroup } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
 import { map, merge, distinctUntilChanged, tap, filter } from 'rxjs/operators';
@@ -111,13 +115,11 @@ export abstract class AsInputAbstract implements AfterViewInit, AsInputInterface
     }
 
     ngAfterViewInit(){
-        if (this.inputElementRef) {
         this.searchboxInputClick$ = fromEvent(this.inputElementRef.nativeElement, 'click').pipe(map((response: MouseEvent) => {
             response.preventDefault();
             response.stopPropagation();
             return response;
-        }));
-    }
+        }));        
         if(this.typeaheadController){
             this.typeaheadController._userInput = '';
         }

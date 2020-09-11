@@ -6,8 +6,11 @@ import { Component, Input, OnInit, Output, EventEmitter, OnChanges,
     ViewChildren, QueryList, ContentChildren, AfterViewInit, AfterContentInit, forwardRef, HostListener } from '@angular/core';
 import { Key as KeyBoard} from 'ts-keycode-enum';
 import {filter, map, share, startWith, debounceTime, distinctUntilChanged, first, tap, merge} from 'rxjs/operators';
-import {of, pipe,  Observable ,  Subject ,  fromEvent } from 'rxjs';
+import {of, pipe} from 'rxjs';
+import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 import { NgbTypeaheadConfig, NgbTypeahead, NgbTypeaheadSelectItemEvent } from '@ng-bootstrap/ng-bootstrap';
+import { fromEvent } from 'rxjs';
 import { NgModel, FormGroup, FormControl, ControlContainer } from '@angular/forms';
 import { UUID } from 'angular2-uuid';
 import { AsConfigService } from './asConfig.service';
@@ -185,7 +188,6 @@ export class AsComponent implements AfterViewInit, OnChanges {
     }
 
     ngAfterViewInit() {
-        
        this.searchboxInputClick$ = fromEvent(this.searchboxInput.nativeElement, 'click').pipe(map((response: MouseEvent) => {
             response.preventDefault();
             response.stopPropagation();
