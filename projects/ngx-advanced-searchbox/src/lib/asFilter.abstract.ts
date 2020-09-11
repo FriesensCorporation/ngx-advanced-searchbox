@@ -208,6 +208,7 @@ export abstract class AsBoxFilterAbstract implements OnInit, OnDestroy, FilterIn
     }
 
     public maxWidthInput(){
+        if (!this.inputComponent) return;
         var advancedSearchboxWidth = this.advancedSearchBox.element.nativeElement.clientWidth-30;
         var filterWidth = this._el.nativeElement.clientWidth;
         var inputWidth = this.inputComponent._element.nativeElement.clientWidth;
