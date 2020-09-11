@@ -49,7 +49,7 @@ export enum TypesInputEnum {
         NgbTypeaheadConfig
     ]
 })
-export class AsInputComponent extends AsBoxFilterAbstract implements OnInit{
+export class AsInputComponent extends AsBoxFilterAbstract implements AfterViewInit{
 
    public inputType:TypesInputEnum;
 
@@ -64,8 +64,8 @@ export class AsInputComponent extends AsBoxFilterAbstract implements OnInit{
         super(advancedSearchBox, _renderer, _el, _http, _config);
     }
 
-    ngOnInit() {
-        super.ngOnInit();
+    ngAfterViewInit() {
+        super.ngAfterViewInit();
         
         this.advancedSearchBox.editNext.pipe(
         filter((response) => response.viewModel && response.viewModel.uuid === this.viewModel.uuid))
