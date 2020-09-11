@@ -6,9 +6,8 @@ import { HttpClient } from "@angular/common/http";
 import { AsConfigService } from "../asConfig.service";
 import { AsInputAbstract } from "./asInput.abstract";
 import { AsBoxFilterAbstract } from "../asFilter.abstract";
-import { Subject } from "rxjs";
+import { Subject ,  Subscription } from "rxjs";
 import { AsInputComponent } from "../asInput.component";
-import { Subscription } from "rxjs";
 import { first } from "rxjs/operators";
 import { NgSelectComponent } from '@ng-select/ng-select';
 import { NgControl, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -32,7 +31,7 @@ import { AsInputWithOperatorsComponent } from '../asInputWithOperators.component
         (remove)="onRemove($event)"
         [(ngModel)]="filter.viewModel.value.value">
     </ng-select>
-    <input autosize #inputAutosize type="text" [(ngModel)]="filterValue" [hidden]="true" />`,
+    <input AutoSizeInput #inputAutosize type="text" [(ngModel)]="filterValue" [hidden]="true" />`,
     styles:[`
         ng-select{
             height:100%;
@@ -73,7 +72,7 @@ export class AsDomainsInputWithOperatorsComponent extends AsInputAbstract implem
     }
 
     ngOnInit(){
-        super.ngOnInit();
+        super.ngAfterViewInit();
        
         this.ngControl.valueChanges.subscribe((res)=>{
             if(res === '' || res === undefined || res === null){

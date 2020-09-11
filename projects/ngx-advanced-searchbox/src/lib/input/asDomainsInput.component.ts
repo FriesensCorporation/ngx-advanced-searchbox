@@ -1,5 +1,5 @@
 import { NgModel, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Observable } from 'rxjs';
+import { Observable ,  Subject ,  BehaviorSubject ,  Subscription } from 'rxjs';
 import { Component, OnDestroy, ViewChild, SimpleChanges, OnChanges, forwardRef } from "@angular/core";
 import { AsComponent } from "../as.component";
 import { Renderer2, ElementRef, OnInit } from "@angular/core";
@@ -7,10 +7,7 @@ import { HttpClient } from "@angular/common/http";
 import { AsConfigService } from "../asConfig.service";
 import { AsInputAbstract } from "./asInput.abstract";
 import { AsBoxFilterAbstract } from "../asFilter.abstract";
-import { Subject } from "rxjs";
 import { AsInputComponent } from "../asInput.component";
-import { BehaviorSubject } from "rxjs";
-import { Subscription } from 'rxjs';
 import { first } from "rxjs/operators";
 import { NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectComponent } from '@ng-select/ng-select';
@@ -35,7 +32,7 @@ import { NgControl } from '@angular/forms';
         [(ngModel)]="filter.viewModel.value"
         >
     </ng-select>
-    <input autosize #inputAutosize type="text" [(ngModel)]="filterValue" [hidden]="true" />`,
+    <input AutoSizeInput #inputAutosize type="text" [(ngModel)]="filterValue" [hidden]="true" />`,
     styles:[`
         ng-select{
             height:100%;

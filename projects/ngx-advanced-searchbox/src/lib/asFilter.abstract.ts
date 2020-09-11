@@ -5,16 +5,13 @@ import { FilterInterface } from './asFilter.interface';
 import { UUID } from 'angular2-uuid';
 import { AsComponent } from './as.component';
 import { Component, OnInit, Renderer2, ElementRef, OnDestroy, Input, ViewChild, HostListener } from '@angular/core';
-import { Subject, fromEvent, merge } from 'rxjs';
+import { Subject, fromEvent, merge ,  Observable ,  Subscriber ,  Subscription } from 'rxjs';
 import { filter, switchMap, map} from "rxjs/operators";
 import { FormControl, ControlValueAccessor } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { AsConfigService } from './asConfig.service';
 import { NgbTypeahead, NgbTypeaheadSelectItemEvent, NgbDropdown } from '@ng-bootstrap/ng-bootstrap';
 import { AsInputInterface } from './input/asInput.interface';
 import { AfterViewInit } from '@angular/core';
-import { Subscriber } from 'rxjs';
-import { Subscription } from 'rxjs';
 import { NgSelectComponent } from '@ng-select/ng-select';
 
 export abstract class AsBoxFilterAbstract implements OnInit, OnDestroy, FilterInterface, AfterViewInit, ControlValueAccessor {
