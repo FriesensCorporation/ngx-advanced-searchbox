@@ -46,7 +46,7 @@ export enum OperatorsEnum {
             </ng-container>
         </ng-container>
         
-        <input type="text" id="searchBootstrap" class="form-control form-control-sm" #searchbox autosize (keydown)="keydown($event)" (focus)="focusInput$.next()" placeholder="Cerca" aria-label="Number" [formControl]="searchBoxControl" [matAutocomplete]="auto">
+        <input type="text" id="searchBootstrap" class="form-control form-control-sm" #searchbox AutoSizeInput (keydown)="keydown($event)" (focus)="focusInput$.next()" placeholder="Cerca" aria-label="Number" [formControl]="searchBoxControl" [matAutocomplete]="auto">
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="addFilter($event)" [displayWith]="displayAutocompleteFn" panelWidth="500">
             <mat-option *ngFor="let option of searchBoxFunc | async" [value]="option">
                 {{option.label}}

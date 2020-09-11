@@ -15,7 +15,7 @@ import { NgxMaskModule } from 'ngx-mask';
   imports: [
     BrowserModule,
     CommonModule,
-    NgbModule.forRoot(),
+    NgbModule,
     AsBoxModule.forRoot(),
     NgxMaskModule
   ],

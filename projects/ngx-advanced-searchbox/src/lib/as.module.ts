@@ -42,8 +42,8 @@ import { MatInputModule } from '@angular/material/input';
         AsSimpleInputWithOperatorsMaskComponent
     ],
     imports: [
-        NgbDropdownModule.forRoot(),
-        NgbTypeaheadModule.forRoot(),
+        NgbDropdownModule,
+        NgbTypeaheadModule,
         NgxMaskModule,
         NgSelectModule,
         CommonModule,
@@ -92,7 +92,7 @@ import { MatInputModule } from '@angular/material/input';
   
 })
 export class AsBoxModule {
-    static forRoot(): ModuleWithProviders { 
+    static forRoot(): ModuleWithProviders<AsBoxModule> { 
         return {
             ngModule: AsBoxModule, 
             providers: [AsConfigService]
